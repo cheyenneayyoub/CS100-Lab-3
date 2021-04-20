@@ -12,17 +12,19 @@ using namespace std;
 
 TEST(RandTest, RandCheckLE) {
 	Rand* test = new Rand ();
-	EXPECT_LE(test->evaluate(), 100)
+	EXPECT_LE(test->evaluate(), 100);
 }
 
 TEST(RandTest, RandCheckGE) {
         Rand* test = new Rand ();
-        EXPECT_GE(test->evaluate(), 0)
+        EXPECT_GE(test->evaluate(), 0);
 }  
 
 TEST(RandTest, RandCheckString) {
         Rand* test = new Rand ();
-        EXPECT_NE(test->evaluate(), -1)
+        EXPECT_NE(test->evaluate(), -1);
 }
+
+#endif
 
 

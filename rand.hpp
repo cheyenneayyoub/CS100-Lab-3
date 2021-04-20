@@ -14,12 +14,12 @@ class Rand : public Base {
 	public:
 	Rand() : Base () {
 	numval = rand() % 100;
-	strval = to_string(numval)
+	strval = to_string(numval);
 	
 }
 
-	virtual double evaluate () { return num }
-	virtual string stringify() { return strval }
+	virtual double evaluate () { return numval; }
+	virtual string stringify() { return strval; }
 
 	
 	private:
