@@ -15,7 +15,7 @@ class Add : public Base{
 			rhs = right;
 		}
 		double evaluate() {
-			return left->evaluate() + right->evaluate();
+			return lhs->evaluate() + rhs->evaluate();
 		}
 		string stringify(){
 			return "(" + lhs->stringify() + "+" + rhs->stringify() + 			")";
