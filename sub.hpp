@@ -10,7 +10,7 @@ class Sub : public Base{
 		Base* lhs;
 		Base* rhs;
 	public:
-		Sub(Base* left, Base* right){
+		Sub(Base* left, Base* right) : Base() {
 			lhs = left;
 			rhs = right;
 		}
