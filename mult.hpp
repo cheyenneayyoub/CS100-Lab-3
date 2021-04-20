@@ -10,24 +10,25 @@ using namespace std;
 
 class Mult : public Base {
 
-	public:
-	Mult( Base* left, Base* right) : Base() {
+    public:
+        Mult(Base* left, Base* right) : Base() {
+            if(left == nullptr || right == nullptr) 
+		{	
+			throw invalid_argument("Null argument.");
+	}
+		   lnode = left; rnode = right;
+        }
 
-	double lval = left->evaluate();
-	double rval = right->evaluate();
-	string lstr = left->stringify();
-	string rstr = right->stringify();
+        double evaluate() {
+           return lnode->evaluate() * rnode->evaluate();
+        }
 
-}
-	virtual double evaluate() { return lval * rval ;}
-	virtual string stringify() { return lstr + " * " + rstr ;}
-
-
-	private:
-	double lval;
-	double rval;
-	string lstr;
-	string rstr;
+        string stringify() {
+            return '(' + lnode->stringify() + "*" + rnode->stringify() + ')';
+        }
+        
+    private:
+        Base *lnode, *rnode;
 
 };
 

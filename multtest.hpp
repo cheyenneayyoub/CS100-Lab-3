@@ -7,10 +7,10 @@
 using namespace std;
 
 	TEST(MultTest, MultEval1_1) {
-		Op* num1 = new Op(1);
-		Op* num2 = new Op(1);
+		Op* num1 = new Op(1.0);
+		Op* num2 = new Op(1.0);
 		Mult* Mtest = new Mult(num1, num2);
-		EXPECT_EQ(Mtest->evaluate(), 1);
+		EXPECT_EQ(Mtest->evaluate(), 1.0);
 }
 
 	 TEST(MultTest, MultEvalN2_3) {
@@ -24,7 +24,8 @@ using namespace std;
                 Op* num1 = new Op(3);
                 Op* num2 = new Op(50);
                 Mult* Mtest = new Mult(num1, num2);
-                EXPECT_EQ(Mtest->stringify(), "3 * 50");
+                string res = "(3.000000*50.000000)";
+		EXPECT_EQ(Mtest->stringify(), res);
 }
 
 	TEST(MultTest, MultEvalZ_10) {
