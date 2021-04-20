@@ -4,7 +4,7 @@
 #include "gtest/gtest.h"
 #include "mult.hpp"
 
-using namespace std:
+using namespace std;
 
 	TEST(MultTest, MultEval1_1) {
 		Op* num1 = new Op(1);
@@ -33,4 +33,6 @@ using namespace std:
                 Mult* Mtest = new Mult(num1, num2);
                 EXPECT_EQ(Mtest->evaluate(), 0);
 }
+
+#endif
 
