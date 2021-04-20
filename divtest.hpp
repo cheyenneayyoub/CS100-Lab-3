@@ -4,6 +4,7 @@
 
 #include "gtest/gtest.h"
 #include "div.hpp"
+#include "sub.hpp"
 
 using namespace std;
 
@@ -35,6 +36,14 @@ using namespace std;
                 EXPECT_EQ(Dtest->evaluate(), 10);
 }
 
+	TEST(DivTest, DivEvalSub) {
+                Op* num1 = new Op(100);
+                Op* num2 = new Op(10);
+		Sub* num3 = new Sub(num1, num2); //90
+		Op* num4 = new Op(9);
+                Div* Dtest = new Div(num3, num4);
+                EXPECT_EQ(Dtest->evaluate(), 10);
+}
 
 #endif 
 
