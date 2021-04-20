@@ -15,7 +15,7 @@ class Sub : public Base{
 			rhs = right;
 		}
 		double evaluate() {
-			return lhs->evaluate() - rhs->evaluate();
+			return (lhs->evaluate() - rhs->evaluate());
 		}
 		string stringify(){
 			return "(" + lhs->stringify() + "-" + rhs->stringify() + 			")";
