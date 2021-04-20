@@ -1,6 +1,10 @@
 #include "gtest/gtest.h"
-#include "add.hpp"
 
+#include "div.hpp"
+#include "sub.hpp"
+#include "mult.hpp"
+#include "add.hpp"
+#include "pow.hpp"
 TEST(AddTest, AddEvalPositive){
 	Op* val1 = new Op(1.0);
 	Op* val2 = new Op(2.8);
@@ -41,4 +45,24 @@ TEST(AddTest, AddStringZero){
         Op* val2 = new Op(0.0);
         Add* test = new Add(val1, val2);
         EXPECT_EQ(test->stringify(), "(0.000000+0.000000)");
+}
+
+TEST(AddTest, AddEvalMany){
+	Base* val1 = new Op(3.0);
+	Base* val2 = new Op(2.0);
+	Div* divn = new Div(val1,val1);
+	Mult* multn = new Mult(divn, val2);
+	Pow* pw = new Pow(multn,val2);
+	Add* addn = new Add(pw,val1);
+	EXPECT_EQ(addn->evaluate(),7.0);
+}
+
+TEST(AddTest, AddStrMany){
+        Base* val1 = new Op(3.0);
+        Base* val2 = new Op(2.0);
+        Div* divn = new Div(val1,val1);
+        Mult* multn = new Mult(divn, val2);
+        Pow* pw = new Pow(multn,val2);
+        Add* addn = new Add(pw,val1);
+        EXPECT_EQ(addn->stringify(),"((((3.000000/3.000000)*2.000000)**2.000000)+3.000000)");
 }
