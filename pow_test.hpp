@@ -8,21 +8,21 @@ using namespace std;
 TEST(PowTest, NoBase){
 	Base* val1 = NULL;
 	Base* val2 = new Op(1.0);
-	EXPECT_THROW(invalid_argument,Pow(val1,val2));
+	EXPECT_THROW(std::invalid_argument,Pow(val1,val2));
 	
 }
 
 TEST(PowTest, NoPower){
 	Base* val2 = NULL;
         Base* val1 = new Op(1.0);
-        EXPECT_THROW(invalid_argument,Pow(val1,val2));
+        EXPECT_THROW(std::invalid_argument,Pow(val1,val2));
     
 }
 
 TEST(PowTest, NoArgument){
         Base* val2 = NULL;
         Base* val1 = NULL;
-        EXPECT_THROW(invalid_argument,Pow(val1,val2));
+        EXPECT_THROW(std::invalid_argument,Pow(val1,val2));
 }
 
 TEST(PowTest, PowEvalPos){
