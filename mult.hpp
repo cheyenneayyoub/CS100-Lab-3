@@ -14,7 +14,7 @@ class Mult : public Base {
 	
 }
 	virtual double evaluate() { return ((lnode->evaluate()) * (rnode->evaluate())) ;}
-	virtual string stringify() { return ((lnode->stringify()) + " * " +  (rnode->stringify())) ;}
+	virtual string stringify() { return ("(" (lnode->stringify()) + " * " +  (rnode->stringify())+ ")" ) ;}
 
 };
 
