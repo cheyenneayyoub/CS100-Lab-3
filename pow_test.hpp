@@ -2,6 +2,8 @@
 #include "pow.hpp"
 #include "add.hpp"
 #include "sub.hpp"
+#include "mult.hpp"
+#include "div.hpp"
 
 using namespace std;
 
@@ -78,4 +80,22 @@ TEST(PowTest, PowStrAddSub){
         Sub* sub = new Sub(sum,val3);
         Base* test = new Pow(sub,val1);
         EXPECT_EQ(test->stringify(), "(((2.000000+2.000000)-3.000000)**2.000000)");
+}
+
+TEST(PowTest, PowEvalMany){
+	Base* val1 = new Op(3.0);
+	Base* val2 = new Op(2.0);
+	Div* divn = new Div(val1,val1);
+	Mult* multn = new Mult(divn, val2);
+	Pow* pw = new Pow(multn,val2);
+	EXPECT_EQ(pw->evaluate(),4.0);
+}
+
+TEST(PowTest, PowStrMany){
+        Base* val1 = new Op(3.0);
+        Base* val2 = new Op(2.0);
+        Div* divn = new Div(val1,val1);
+        Mult* multn = new Mult(divn, val2);
+        Pow* pw = new Pow(multn,val2);
+    	EXPECT_EQ(pw->stringify(), "(((3.000000/3.000000)*2.000000)**2.000000)");
 }
