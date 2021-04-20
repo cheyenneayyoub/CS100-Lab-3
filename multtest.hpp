@@ -46,5 +46,32 @@ using namespace std;
                 EXPECT_EQ(Mtest->evaluate(), 9);
 }
 
+
+	TEST(MultTest, MultMany){
+		Op* num1 = new Op(3.0);
+		Op* num2 = new Op(5.0);
+		Op* num3 = new Op(2.0);
+		Op* num4 = new Op(1.0);
+		Op* num5 = new Op(4.0);
+
+		Add* addn = new Add(num3,num4);
+		Pow* pw = new Pow(addn,num3);
+		Mult* multn = new Mult(pw, num3);
+		EXPECT_EQ(multn->evaluate(), 18.0);
+}
+
+	TEST(MultTest, MultStrMany){
+                Op* num1 = new Op(3.0);
+                Op* num2 = new Op(5.0);
+                Op* num3 = new Op(2.0);
+                Op* num4 = new Op(1.0);
+                Op* num5 = new Op(4.0);
+
+                Add* addn = new Add(num3,num4);
+                Pow* pw = new Pow(addn,num3);
+                Mult* multn = new Mult(pw, num3);
+                EXPECT_EQ(multn->stringify(), "(((2.000000+1.000000)**2.000000)*2.000000)");
+}
+
 #endif
 
