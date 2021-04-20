@@ -2,9 +2,12 @@
 #define POW_HPP_
 
 #include "base.hpp"
+#include <stdexcept>
+#include <limits>
+#include <cmath>
 
 using namespace std;
-Class Pow : public Base{
+class Pow : public Base{
 	private:
 		Base* lhs;
 		Base* rhs;
