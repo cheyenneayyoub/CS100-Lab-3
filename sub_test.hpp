@@ -7,14 +7,14 @@ TEST(SubTest, SubEvalPos){
 	Op* val1 = new Op(2.8);
 	Op* val2 = new Op(1.0);
 	Sub* test = new Sub(val1, val2);
-	EXPECT_EQ(test->evaluate(),1.8);
+	EXPECT_DOUBLE_EQ(test->evaluate(),1.8);
 }
 
 TEST(SubTest, SubEvalNeg){
         Op* val1 = new Op(-2.8);
         Op* val2 = new Op(-1.0);
         Sub* test = new Sub(val1, val2);
-        EXPECT_EQ(test->evaluate(),-1.8);
+        EXPECT_DOUBLE_EQ(test->evaluate(),-1.8);
 }
 
 TEST(SubTest, SubEvalZero){
@@ -30,7 +30,7 @@ TEST(SubTest, SubEvalAdd){
 	Op* val3 = new Op(5.0);
         Add* num  = new Add(val1, val2);
 	Sub* test = new Sub(val3, num);
-        EXPECT_EQ(test->evaluate(),1.2);
+        EXPECT_DOUBLE_EQ(test->evaluate(),1.2);
 }
 
 TEST(SubTest, SubStringPos){
