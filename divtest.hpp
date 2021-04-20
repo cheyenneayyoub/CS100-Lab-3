@@ -5,7 +5,7 @@
 #include "gtest/gtest.h"
 #include "div.hpp"
 
-using namespace std:
+using namespace std;
 
 	TEST(DivTest, DivEval1_1) {
 		Op* num1 = new Op(1);
@@ -34,3 +34,7 @@ using namespace std:
                 Div* Dtest = new Div(num1, num2);
                 EXPECT_EQ(Dtest->evaluate(), 10);
 }
+
+
+#endif 
+
