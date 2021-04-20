@@ -25,7 +25,7 @@ using namespace std;
                 Op* num1 = new Op(30);
                 Op* num2 = new Op(3);
                 Div* Dtest = new Div(num1, num2);
-                EXPECT_EQ(Dtest->stringify(), "30 / 3");
+                EXPECT_EQ(Dtest->stringify(), "(30.000000/3.000000)");
 }
 
 	TEST(DivTest, DivEval100_10) {

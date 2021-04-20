@@ -9,28 +9,29 @@
 using namespace std;
 
 class Div : public Base {
-
 	public:
-	Div( Base* left, Base* right) : Base() {
+        Div(Base* left, Base* right) : Base() {
+            if(left == nullptr || right == nullptr) {
+			throw invalid_argument("Null argument.")
+		;}
 
-	double lval = left->evaluate();
-	double rval = right->evaluate();
-	string lstr = left->stringify();
-	string rstr = right->stringify();
+            lnode = left; rnode = right;
+            if(rnode->evaluate() == 0){
+		        throw invalid_argument("Invalid Argument: Divided by zero.");
+	        }
+        }
 
-}
-	virtual double evaluate() { return lval / rval ;}
-	virtual string stringify() { return lstr + " / " + rstr ;}
+        double evaluate() {
+            return lnode->evaluate() / rnode->evaluate();
+        }
 
+        string stringify() {
+            return '(' + lnode->stringify() + "/" + rnode->stringify() + ')';
+        }
 
 	private:
-	double lval;
-	double rval;
-	string lstr;
-	string rstr;
+        Base *lnode, *rnode;
 
 };
 
 #endif
-
-
