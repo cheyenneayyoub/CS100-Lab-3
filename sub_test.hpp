@@ -1,7 +1,9 @@
 #include "gtest/gtest.h"
 #include "sub.hpp"
 #include "add.hpp"
-
+#include "div.hpp"
+#include "pow.hpp"
+#include "mult.hpp"
 
 TEST(SubTest, SubEvalPos){
 	Op* val1 = new Op(2.8);
@@ -61,4 +63,24 @@ TEST(SubTest, SubStringAdd){
         Add* num  = new Add(val1, val2);
         Sub* test = new Sub(val3, num);
         EXPECT_EQ(test->stringify(), "(5.000000-(2.800000+1.000000))");
+}
+
+TEST(SubTest, SubEvalMany){
+	Base* val1 = new Op(3.0);
+	Base* val2 = new Op(2.0);
+	Div* divn = new Div(val1,val1);
+	Mult* multn = new Mult(divn, val2);
+	Pow* pw = new Pow(multn,val2);
+	Sub* subn = new Sub(pw,val1);
+	EXPECT_EQ(subn->evaluate(),1.0);
+}
+
+TEST(SubTest, SubStrMany){
+        Base* val1 = new Op(3.0);
+        Base* val2 = new Op(2.0);
+        Div* divn = new Div(val1,val1);
+        Mult* multn = new Mult(divn, val2);
+        Pow* pw = new Pow(multn,val2);
+        Sub* subn = new Sub(pw,val1);
+        EXPECT_EQ(subn->stringify(),"((((3.000000/3.000000)*2.000000)**2.000000)-3.000000)");
 }
